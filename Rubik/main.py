@@ -1,7 +1,6 @@
 def rot90(matrix):
     return [list(reversed(col)) for col in zip(*matrix)]
 
-
 Inp = open("Input.txt")
 n, m = map(int, Inp.readline().split())
 x, y, z = map(int, Inp.readline().split())
