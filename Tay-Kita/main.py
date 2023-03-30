@@ -1,5 +1,5 @@
 with open('Input.txt', 'r') as Inp:
-    tk = [w for w in Inp.readline().split()]
+    tk = Inp.readline().split()
 Ans = [''] * len(tk)
 
 Start = int(len(tk)/2)
