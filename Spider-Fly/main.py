@@ -1,35 +1,35 @@
-def Shift(A, B, C):
-    if B[2] == B[1] or A[2] == 0 or A[2] == A[0]:
-        return Rect(C, A, B)
-    elif C[2] == 0 or C[2] == C[0]:
-        return Rect(A, B, C)
+def shift(a, b, c):
+    if b[2] == b[1] or a[2] == 0 or a[2] == a[0]:
+        return rect(c, a, b)
+    elif c[2] == 0 or c[2] == c[0]:
+        return rect(a, b, c)
     else:
-        if A[1] + A[2] > A[0] or B[1] + B[2] > B[0]:
-            return CounRev(C, B, A)
+        if a[1] + a[2] > a[0] or b[1] + b[2] > b[0]:
+            return coun_rev(c, b, a)
         else:
-            return Rev(C, B, A)
+            return rev(c, b, a)
 
-def Rect(I, J, K):
-    return (pow(I[1] - I[2], 2) + pow(abs(J[1] - J[2]) + abs(K[1] - K[2]), 2)) ** 0.5
+def rect(a, b, c):
+    return (pow(a[1] - a[2], 2) + pow(abs(b[1] - b[2]) + abs(c[1] - c[2]), 2)) ** 0.5
 
-def CounRev(I, J, K):
-    return (pow(I[1] - I[2], 2) + pow((J[0] - J[1]) + (J[0] - J[2]) + (K[0] - K[1]) + (K[0] - K[2]), 2)) ** 0.5
+def coun_rev(a, b, c):
+    return (pow(a[1] - a[2], 2) + pow((b[0] - b[1]) + (b[0] - b[2]) + (c[0] - c[1]) + (c[0] - c[2]), 2)) ** 0.5
 
-def Rev(I, J, K):
-    return (pow(I[1] - I[2], 2) + pow((J[1] + J[2]) + (K[1] + K[2]), 2)) ** 0.5
+def rev(a, b, c):
+    return (pow(a[1] - a[2], 2) + pow((b[1] + b[2]) + (c[1] + c[2]), 2)) ** 0.5
 
 
-X, Y, Z = [0] * 3, [0] * 3, [0] * 3
+x, y, z = [0] * 3, [0] * 3, [0] * 3
 with open('Input.txt', 'r') as Inp:
     for i in range(3):
-        X[i], Y[i], Z[i] = map(int, Inp.readline().split())
+        x[i], y[i], z[i] = map(int, Inp.readline().split())
 
-if X[1] == 0 or X[1] == X[0]:
-    ans = Shift(Y, X, Z)
-elif Y[1] == 0 or Y[1] == Y[0]:
-    ans = Shift(X, Y, Z)
-elif Z[1] == 0 or Z[1] == Z[0]:
-    ans = Shift(Y, Z, X)
-    
+if x[1] == 0 or x[1] == x[0]:
+    ans = shift(y, x, z)
+elif y[1] == 0 or y[1] == y[0]:
+    ans = shift(x, y, z)
+elif z[1] == 0 or z[1] == z[0]:
+    ans = shift(y, z, x)
+
 with open('Output.txt', 'w') as Outp:
     Outp.write(str(round(ans, 3)))
