@@ -33,4 +33,3 @@ elif Z[1] == 0 or Z[1] == Z[0]:
     
 with open('Output.txt', 'w') as Outp:
     Outp.write(str(round(ans, 3)))
-    Outp.close()
