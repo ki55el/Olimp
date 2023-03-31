@@ -4,16 +4,16 @@ with open('Input.txt', 'r') as Inp:
 for i in range(len(data)):
     if data[i][0] == 'MIX':
         data[i][0] = 'MX'
-        data[i] += ['XM']
+        data[i].append('XM')
     elif data[i][0] == 'WATER':
         data[i][0] = 'WT'
-        data[i] += ['TW']
+        data[i].append('TW')
     elif data[i][0] == 'DUST':
         data[i][0] = 'DT'
-        data[i] += ['TD']
+        data[i].append('TD')
     elif data[i][0] == 'FIRE':
         data[i][0] = 'FR'
-        data[i] += ['RF']
+        data[i].append('RF')
     for j in range(len(data[i])):
         if data[i][j].isdigit():
             data[i][j] = ''.join(data[int(data[i][j]) - 1])
