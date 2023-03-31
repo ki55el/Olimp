@@ -16,4 +16,3 @@ for f in full.items():
             ans[f[0]-1] += f'{h[0]} '
 with open('Output.txt', 'w') as Outp:
     Outp.write('\n'.join(ans))
-    Outp.close()
