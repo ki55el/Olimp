@@ -22,4 +22,4 @@ for I in range(len(tk)):
 
 with open('Output.txt', 'w') as Outp:
     Outp.write(' '.join(Ans))
-    Outp.close()
+    
