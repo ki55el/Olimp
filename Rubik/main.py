@@ -57,4 +57,4 @@ while i < m:
 
 with open('Output.txt', 'w') as Outp:
     Outp.write(f'{x} {y} {z}')
-    Outp.close()
+
