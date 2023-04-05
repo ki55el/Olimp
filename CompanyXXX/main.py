@@ -25,16 +25,13 @@ with open('Input.txt', 'r') as Inp:
             else:
                 empl[boss] = [sub]
     BOSS = [Inp.readline()]
-if BOSS[0] in nums.keys():
+if not(BOSS[0].isdigit()):
     BOSS = [nums[BOSS[0]]]
 
 ans = []
 while set(BOSS) & set(empl.keys()):
     res = []
-    for t in BOSS:
-        if t in empl.keys():
-            ans.extend(empl[t])
-            res.extend(empl[t])
+    [ans.extend(empl[t]) and res.extend(empl[t]) for t in BOSS if (t in empl.keys())]
     BOSS = res
 ans = sorted([f'{n} {names[n]}' for n in ans])
 if not ans:
