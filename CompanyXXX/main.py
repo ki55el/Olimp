@@ -31,7 +31,7 @@ if not(BOSS[0].isdigit()):
 ans = []
 while set(BOSS) & set(empl.keys()):
     res = []
-    [ans.extend(empl[t]) and res.extend(empl[t]) for t in BOSS if (t in empl.keys())]
+    [ans.extend(empl[B]) and res.extend(empl[B]) for B in BOSS if (B in empl.keys())]
     BOSS = res
 ans = sorted([f'{n} {names[n]}' for n in ans])
 if not ans:
