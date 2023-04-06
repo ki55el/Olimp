@@ -4,22 +4,21 @@ nums = dict()
 with open('Input.txt', 'r') as Inp:
     for count, line in enumerate(iter(Inp.readline, 'END\n')):
         if count % 2 == 0:
-            try:
-                boss, bossname = line.strip().split(' ', 1)
+            boss = line.strip()
+            if len(boss) != 4:
+                boss, bossname = boss.split(' ', 1)
                 names[boss] = bossname
                 nums[bossname] = boss
-            except ValueError:
-                boss = line.strip()
-                if not(boss in names.keys()):
-                    names[boss] = 'Unknown Name'
+            if not(boss in names.keys()):
+                names[boss] = 'Unknown Name'
         else:
-            try:
-                sub, subname = line.strip().split(' ', 1)
+            sub = line.strip()
+            if len(sub) != 4:
+                sub, subname = sub.split(' ', 1)
                 names[sub] = subname
-            except ValueError:
-                sub = line.strip()
-                if not(sub in names.keys()):
-                    names[sub] = 'Unknown Name'
+            if not(sub in names.keys()):
+                names[sub] = 'Unknown Name'
+
             if boss in empl.keys():
                 empl[boss].append(sub)
             else:
@@ -31,7 +30,7 @@ if not(BOSS[0].isdigit()):
 ans = []
 while set(BOSS) & set(empl.keys()):
     res = []
-    [ans.extend(empl[B]) and res.extend(empl[B]) for B in BOSS if (B in empl.keys())]
+    [ans.extend(empl[t]) and res.extend(empl[t]) for t in BOSS if (t in empl.keys())]
     BOSS = res
 ans = sorted([f'{n} {names[n]}' for n in ans])
 if not ans:
