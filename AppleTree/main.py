@@ -15,9 +15,9 @@ for k in range(N+1):
 [C.pop(x) and S.pop(x) for x in range(M) if S[x] < Z]
 ans = 0
 while C:
-    aim = min([(tree[X][c], c, i) for i, c in enumerate(C)])
+    aim = min([(tree[X][c], c) for c in C])
     ans += aim[0]
     X = aim[1]
-    C.pop(aim[2])
+    C.remove(aim[1])
 with open('Output.txt', 'w') as Outp:
     Outp.write(str(ans))
