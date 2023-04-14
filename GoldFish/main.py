@@ -8,7 +8,6 @@ def counter(pos):
     for w in range(len(words)):
         for e in edge.keys():
             if words[w][pos] == e and edge[e]:
-                words[w] = words[w][-1:]
                 coll.append(edge[e].pop())
                 break
     return len(coll)
