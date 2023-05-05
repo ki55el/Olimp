@@ -12,7 +12,7 @@ for e in range(C[0]):
 
 res = 0
 for i in reversed(range(C[0])):
-    C[i+1] *= C[i + 2]
+    C[i+1] *= C[i+2]
     res += C[i+1] * E[i]
 
 ans = [0] * D[0]
