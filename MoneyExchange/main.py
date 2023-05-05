@@ -17,12 +17,12 @@ for i in reversed(range(C[0])):
 
 ans = [0] * D[0]
 for i in reversed(range(D[0])):
-    ans[i] = res % D[i + 1]
+    ans[i] = res % D[i+1]
     res //= D[i+1]
 
 for s in range(D[0]):
     for b in range(B[0]):
-        if ans[s] >= B[b + 1]:
+        if ans[s] >= B[b+1]:
             ans[s] += 1
 
 with open('Output.txt', 'w') as Outp:
