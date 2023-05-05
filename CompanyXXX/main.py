@@ -28,7 +28,7 @@ if not(BOSS[0].isdigit()):
     BOSS = [nums[BOSS[0]]]
 
 ans = []
-while set(BOSS) & set(empl.keys()):
+while BOSS:
     res = []
     [ans.extend(empl[t]) and res.extend(empl[t]) for t in BOSS if (t in empl.keys())]
     BOSS = res
